@@ -32,8 +32,6 @@ from filters import SellMethod, ListingDuration
 
 # Initialize the RestocksClient with login credentials and proxy list.
 client = RestocksClient(
-    email='your_email@example.com',
-    password='your_password',
     proxy_list=[
         "proxy1:port:username:password",
         "proxy2:port:username:password",
@@ -41,11 +39,15 @@ client = RestocksClient(
     ]
 )
 
-# Authenticate and login.
-client.login()
-
 # Fetch information about a product using its SKU.
 product_info = client.get_product_info(slug=client.search_product(sku='DD1391-100').slug)
+
+# set login data
+client.email='your_email@example.com',
+client.password='your_password',
+
+# Authenticate and login.
+client.login()
 
 # Retrieve current listings with a specific sell method.
 current_listings = client.get_current_listings(sell_method=SellMethod.Resell)
@@ -61,7 +63,10 @@ client.list_product(
 
 # Example of working with listings.
 listing = current_listings[1]
-client.delete_listing(listing.listing_id)
+client.edit_listing(listing_id=listing.listing_id, new_price=500)
+
+for listing in current_listings:
+    client.delete_listing(listing.listing_id)
 ```
 
 ## Note
