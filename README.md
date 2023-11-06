@@ -80,3 +80,8 @@ for listing in current_listings:
 
 ## Note
 I recommend the use of proxies, which can be specified as a list as shown in the example. The format `hostname:port:username:password` is used for this. The use of proxies helps to avoid blocks of restocks. If no proxy list is given, the localhost is used by default.
+
+## Credits
+
+This project was inspired by the structure of [ssbanjo's Restocks-client](https://github.com/ssbanjo/Restocks-client). While `restocks_api_wrapper` is a completely independent and updated implementation, the design and workflow provided a starting point for development. Many thanks to the original author for their work.
+
