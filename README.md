@@ -3,6 +3,15 @@
 ## Overview
 The `restocks_api_wrapper` is an **unofficial** wrapper for the api of the sneaker platform restocks.net. It allows you to get information about products, but also to manage your sales. There is no connection to restocks, this is a private project.
 
+## Installation
+
+Install the package using pip:
+
+```bash
+pip install restocks-api-wrapper
+```
+Ensure that you are using Python 3.11 or higher, as this is the minimum version required for this package.
+
 ## Functions
 
 | Function Name         | Description                                         | Login Required |
