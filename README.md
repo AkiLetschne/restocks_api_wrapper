@@ -27,8 +27,8 @@ The `restocks_api_wrapper` is an **unofficial** wrapper for the api of the sneak
 ## Usage Example
 
 ```python
-from restocks_client import RestocksClient
-from filters import SellMethod, ListingDuration
+from restocks_client.client import RestocksClient
+from restocks_client.filters import SellMethod, ListingDuration
 
 # Initialize the RestocksClient with login credentials and proxy list.
 client = RestocksClient(
@@ -43,8 +43,8 @@ client = RestocksClient(
 product_info = client.get_product_info(slug=client.search_product(sku='DD1391-100').slug)
 
 # set login data
-client.email='your_email@example.com',
-client.password='your_password',
+client.email = 'your_email@example.com',
+client.password = 'your_password',
 
 # Authenticate and login.
 client.login()

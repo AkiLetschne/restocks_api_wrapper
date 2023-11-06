@@ -56,7 +56,7 @@ class Product:
 
     @classmethod
     def _from_json(cls, data: dict) -> Self:
-        from utils.helpers import get_sku
+        from restocks_client.utils.helpers import get_sku
         return Product(
             name=data["name"],
             image=data["image"].replace("width=80", "width=500"),

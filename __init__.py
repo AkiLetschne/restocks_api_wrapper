@@ -1,1 +1,1 @@
-from .restocks_client import RestocksClient
+from .restocks_client.client import RestocksClient
