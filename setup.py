@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name='restocks_api_wrapper',
-    version='0.1.0',
+    version='0.1.1',
     packages=find_packages(exclude=("tests",)),
     url='https://github.com/AkiLetschne/restocks_api_wrapper',
     license='MIT',
