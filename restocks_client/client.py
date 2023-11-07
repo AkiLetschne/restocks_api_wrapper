@@ -4,7 +4,7 @@ from requests import Response
 from .exceptions import SessionException, LoginException, RequestException
 from .product import Product
 from .filters import SellMethod, ListingDuration
-from .utils.helpers import get_sku, parse_size, parse_int, parse_date
+from .utils.helpers import get_sku, parse_size, parse_int
 from .utils.defaults import BASE_URL, DEFAULT_HEADERS
 from .utils.proxy_handler import get_random_proxy, load_proxies_restocks
 
@@ -167,7 +167,7 @@ class RestocksClient:
                 'size': p['size']['name'],
                 'price': p['payout'],
                 'listing_id': p['id'],
-                'date': parse_date(p['date'])
+                'date': p['date']
             }
             sales.append(Product._from_json(product))
 
@@ -209,7 +209,7 @@ class RestocksClient:
                 'size': p['size']['name'],
                 'price': p['payout'],
                 'listing_id': p['id'],
-                'date': parse_date(p['date'])
+                'date': p['date']
             }
             sales.append(Product._from_json(product))
 

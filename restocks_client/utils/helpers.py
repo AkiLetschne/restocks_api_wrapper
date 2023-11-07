@@ -19,11 +19,6 @@ def parse_size(size_str: str) -> str:
         return num
 
 
-def parse_date(date_string):
-    date_object = datetime.strptime(date_string, '%d/%m/%y')
-    return date_object.isoformat()
-
-
 def get_sku(image: str, baseproduct_id) -> str:
     try:
         return _image_to_sku(image)
