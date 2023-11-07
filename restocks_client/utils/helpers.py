@@ -22,8 +22,9 @@ def get_sku(image: str, baseproduct_id) -> str:
     try:
         return _image_to_sku(image)
     except IndexError:
-        from ..restocks_api import get_sku_from_id
-        return get_sku_from_id(baseproduct_id)
+        from ..client import RestocksClient
+        client = RestocksClient()
+        return client.get_sku_from_id(baseproduct_id)
 
 
 def _image_to_sku(image: str) -> str:
