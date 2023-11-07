@@ -4,7 +4,7 @@ from requests import Response
 from .exceptions import SessionException, LoginException, RequestException
 from .product import Product
 from .filters import SellMethod, ListingDuration
-from .utils.helpers import get_sku, parse_size, parse_int
+from .utils.helpers import get_sku, parse_size, parse_int, parse_date
 from .utils.defaults import BASE_URL, DEFAULT_HEADERS
 from .utils.proxy_handler import get_random_proxy, load_proxies_restocks
 
@@ -145,6 +145,7 @@ class RestocksClient:
         Returns:
             list[Product]: A list of Product objects representing the historical sales.
         """
+
         data = self._history_sales_request(page=1)
         total_pages = data["meta"]["last_page"]
 
@@ -165,7 +166,8 @@ class RestocksClient:
                 'id': p['baseproduct']['id'],
                 'size': p['size']['name'],
                 'price': p['payout'],
-                'listing_id': p['id']
+                'listing_id': p['id'],
+                'date': parse_date(p['date'])
             }
             sales.append(Product._from_json(product))
 
@@ -206,7 +208,8 @@ class RestocksClient:
                 'id': p['baseproduct']['id'],
                 'size': p['size']['name'],
                 'price': p['payout'],
-                'listing_id': p['id']
+                'listing_id': p['id'],
+                'date': parse_date(p['date'])
             }
             sales.append(Product._from_json(product))
 

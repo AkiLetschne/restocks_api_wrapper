@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 
 def parse_int(number_str: str) -> int:
@@ -16,6 +17,11 @@ def parse_size(size_str: str) -> str:
         return num + " 1/3"
     else:
         return num
+
+
+def parse_date(date_string):
+    date_object = datetime.strptime(date_string, '%d/%m/%y')
+    return date_object.isoformat()
 
 
 def get_sku(image: str, baseproduct_id) -> str:
