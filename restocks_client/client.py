@@ -73,13 +73,23 @@ class RestocksClient:
         else:
             return False
 
-    def login(self) -> bool:
+    def login(self, email=None, password=None) -> bool:
         """
-        Authenticates the user using the provided email and password.
+        Authenticates the user using the provided email and password. If credentials are not provided,
+        it uses the credentials stored in the class instance.
+
+        Args:
+            email (str, optional): Email used for authentication. If provided, it updates the class email attribute.
+            password (str, optional): Password for authentication. If provided, it updates the class password attribute.
 
         Returns:
             bool: True if login was successful, False otherwise.
         """
+        if email is not None:
+            self.email = email
+        if password is not None:
+            self.password = password
+
         if self.email is None or self.password is None:
             raise LoginException('Email and password must be provided for authentication.')
 
@@ -94,7 +104,8 @@ class RestocksClient:
             self.headers['Authorization'] = f"Bearer {login_response.json()['data']['token']}"
             self._set_country_headers()
             return True
-        raise LoginException(f'Login failed with status code: {login_response.status_code}')
+        else:
+            raise LoginException(f'Login failed with status code: {login_response.status_code}')
 
     def get_current_listings(self, sell_method: str) -> list[Product]:
         """
