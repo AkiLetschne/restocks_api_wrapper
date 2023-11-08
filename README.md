@@ -71,12 +71,12 @@ client = RestocksClient(
 # Fetch information about a product using its SKU.
 product_info = client.get_product_info(slug=client.search_product(sku='DD1391-100').slug)
 
-# set login data
-client.email = 'your_email@example.com',
-client.password = 'your_password',
+# login data
+email = 'your_email@example.com',
+password = 'your_password',
 
 # Authenticate and login.
-client.login()
+client.login(email, password)
 
 # Retrieve current listings with a specific sell method.
 current_listings = client.get_current_listings(sell_method=SellMethod.Resell)
