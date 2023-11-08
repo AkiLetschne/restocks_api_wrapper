@@ -13,6 +13,7 @@ pip install restocks-api-wrapper
 Ensure that you are using Python 3.11 or higher, as this is the minimum version required for this package.
 
 ## Functions
+The following table describes each function available in the RestocksClient object, along with whether a user login is required to use the function.
 
 | Function Name         | Description                                         | Login Required |
 |-----------------------|-----------------------------------------------------|----------------|
@@ -32,6 +33,25 @@ Ensure that you are using Python 3.11 or higher, as this is the minimum version 
 | `get_shipping_products` | Retrieves products that need shipping.            | Yes            |
 | `download_label`      | Downloads the shipping label for a product.         | Yes            |
 | `check_consign_status`| Checks the consignment status of the user.          | Yes            |
+
+### Filters
+
+When listing a product or retrieving current listings, you can specify filters to narrow down the results or to set the conditions of your listing. Below are the filter types and their possible values:
+
+#### ListingDuration
+This filter is used to specify the duration for which a product will be listed on the platform. The possible values are:
+
+- `Days30`: List the product for 30 days.
+- `Days60`: List the product for 60 days.
+- `Days90`: List the product for 90 days.
+
+#### SellMethod
+This filter is used to define the method of sale. The possible values are:
+
+- `Consign`: The product is sold on consignment.
+- `Resell`: The product is resold directly.
+
+Refer to the usage example below to see how these filters are applied in method calls.
 
 ## Usage Example
 
