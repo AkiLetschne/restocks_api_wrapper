@@ -10,8 +10,3 @@ class ListingDuration(IntEnum):
 class SellMethod(StrEnum):
     Consign = "consignment"
     Resell = "resale"
-
-
-class AutoMode(StrEnum):
-    Auto = "auto"
-    Auto2 = "auto2"
